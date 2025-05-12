@@ -3,13 +3,14 @@ class Student(
     private var age: Int = 0,
     private var grades: List<Int> = listOf()
 ) {
+    private var _name: String = name.trim().replaceFirstChar { it.uppercase() }
+
     init {
-        println("Створено об'єкт Student: $name")
+        println("Створено об'єкт Student: $_name")
     }
 
-    constructor(name: String) : this(name.trim().replaceFirstChar { it.uppercase() })
+    constructor(name: String) : this(name, 0, listOf())
 
-    private var _name: String = name.trim().replaceFirstChar { it.uppercase() }
     var name: String
         get() = _name
         set(value) {
